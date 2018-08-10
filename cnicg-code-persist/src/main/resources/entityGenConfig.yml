@@ -1,0 +1,7 @@
+jdbcSettings:
+  url: "jdbc:mysql://127.0.0.1:3306/code"
+  username: "root"
+  password: "123456"
+  driverClassName: "com.mysql.jdbc.Driver"
+
+packageName: "com.example.entity"

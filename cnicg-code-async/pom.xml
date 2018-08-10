@@ -1,0 +1,95 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.sciov.cnicg.code</groupId>
+		<artifactId>cnicg-code</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<artifactId>cnicg-code-async</artifactId>
+	<dependencies>
+		    <dependency>
+      <groupId>com.typesafe.akka</groupId>
+      <artifactId>akka-actor_2.12</artifactId>
+      <version>2.5.14</version>
+    </dependency>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-actor_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-testkit_2.12</artifactId>
+			<version>2.5.14</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-cluster_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-remote_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-contrib_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-agent_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+		<dependency>
+			<groupId>de.l3s.boilerpipe</groupId>
+			<artifactId>boilerpipe</artifactId>
+			<version>1.1.0</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.jason-goodwin/better-monads -->
+		<dependency>
+			<groupId>com.jason-goodwin</groupId>
+			<artifactId>better-monads</artifactId>
+			<version>0.4.1</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-contrib_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-cluster_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-contrib-extra_2.12</artifactId>
+			<version>4.1.3</version>
+		</dependency>
+		<dependency>
+			<groupId>com.typesafe.akka</groupId>
+			<artifactId>akka-slf4j_2.12</artifactId>
+			<version>2.5.14</version>
+		</dependency>
+	</dependencies>
+</project>

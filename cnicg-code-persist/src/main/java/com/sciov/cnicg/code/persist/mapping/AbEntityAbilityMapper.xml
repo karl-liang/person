@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sciov.cnicg.code.persist.mapper.AbEntityAbilityMapper" >
+  <resultMap id="BaseResultMap" type="com.sciov.cnicg.code.module.bean.AbEntityAbility" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="ability_name" property="abilityName" jdbcType="VARCHAR" />
+    <result column="ability_score" property="abilityScore" jdbcType="INTEGER" />
+    <result column="ability_status" property="abilityStatus" jdbcType="INTEGER" />
+    <result column="gmt_create" property="gmtCreate" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, ability_name, ability_score, ability_status, gmt_create
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbilityExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from ab_entity_ability
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ab_entity_ability
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ab_entity_ability
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbilityExample" >
+    delete from ab_entity_ability
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbility" >
+    insert into ab_entity_ability (id, ability_name, ability_score, 
+      ability_status, gmt_create)
+    values (#{id,jdbcType=INTEGER}, #{abilityName,jdbcType=VARCHAR}, #{abilityScore,jdbcType=INTEGER}, 
+      #{abilityStatus,jdbcType=INTEGER}, #{gmtCreate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbility" >
+    insert into ab_entity_ability
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="abilityName != null" >
+        ability_name,
+      </if>
+      <if test="abilityScore != null" >
+        ability_score,
+      </if>
+      <if test="abilityStatus != null" >
+        ability_status,
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="abilityName != null" >
+        #{abilityName,jdbcType=VARCHAR},
+      </if>
+      <if test="abilityScore != null" >
+        #{abilityScore,jdbcType=INTEGER},
+      </if>
+      <if test="abilityStatus != null" >
+        #{abilityStatus,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbilityExample" resultType="java.lang.Integer" >
+    select count(*) from ab_entity_ability
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update ab_entity_ability
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.abilityName != null" >
+        ability_name = #{record.abilityName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.abilityScore != null" >
+        ability_score = #{record.abilityScore,jdbcType=INTEGER},
+      </if>
+      <if test="record.abilityStatus != null" >
+        ability_status = #{record.abilityStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.gmtCreate != null" >
+        gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update ab_entity_ability
+    set id = #{record.id,jdbcType=INTEGER},
+      ability_name = #{record.abilityName,jdbcType=VARCHAR},
+      ability_score = #{record.abilityScore,jdbcType=INTEGER},
+      ability_status = #{record.abilityStatus,jdbcType=INTEGER},
+      gmt_create = #{record.gmtCreate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbility" >
+    update ab_entity_ability
+    <set >
+      <if test="abilityName != null" >
+        ability_name = #{abilityName,jdbcType=VARCHAR},
+      </if>
+      <if test="abilityScore != null" >
+        ability_score = #{abilityScore,jdbcType=INTEGER},
+      </if>
+      <if test="abilityStatus != null" >
+        ability_status = #{abilityStatus,jdbcType=INTEGER},
+      </if>
+      <if test="gmtCreate != null" >
+        gmt_create = #{gmtCreate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sciov.cnicg.code.module.bean.AbEntityAbility" >
+    update ab_entity_ability
+    set ability_name = #{abilityName,jdbcType=VARCHAR},
+      ability_score = #{abilityScore,jdbcType=INTEGER},
+      ability_status = #{abilityStatus,jdbcType=INTEGER},
+      gmt_create = #{gmtCreate,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,48 @@
+#COMMON CONFIGURATION
+#SERVER
+server:
+  port: 8080
+  session:
+    timeout: 3600
+  context-path: /cnicg-code
+
+#mybatis page helper
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  row-bounds-with-count: true
+
+#SPRING
+spring:
+  application:
+    name: cnicg-bpm
+  http:
+    encoding:
+      charset: utf-8
+      enabled: true
+      force: true
+    multipart:
+      maxFileSize: 3Mb
+      maxRequestSize: 3Mb
+  session:
+    store-type: none
+    #数据库
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource # 使用druid数据源
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://120.78.82.133:3306/code?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: 123456
+grpc:
+  server:
+    port: 9004
+
+    
+mybatis:
+  mapperLocations: classpath*:com/sciov/cnicg/code/persist/mapping/*.xml
+  typeAliasesPackage: com.sciov.cnicg.code.module.bean
+
+amap:
+  key: 7772bdda393f4d946a11996f542c5b65
+ 
